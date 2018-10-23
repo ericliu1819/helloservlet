@@ -6,4 +6,4 @@ To compile the program under JDK, we need to use the -d option to specify the ou
 d:\...> cd <CATALINA_HOME>\webapps\helloservlet\WEB-INF
   
 // Compile the source file and place the class in the specified destination directory
-d:\<CATALINA_HOME>\webapps\helloservlet\WEB-INF> javac -d classes src\mypkg\HelloServlet.java
+# d:\<CATALINA_HOME>\webapps\helloservlet\WEB-INF> javac -d classes src\mypkg\HelloServlet.java
