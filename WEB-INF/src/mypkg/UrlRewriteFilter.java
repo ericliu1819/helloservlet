@@ -14,11 +14,12 @@ public class UrlRewriteFilter extends MyGenericFilter {
         HttpServletRequest request = (HttpServletRequest) req;
         String requestURI = request.getRequestURI();
         System.out.println(requestURI);
-        if (requestURI.startsWith("/helloservlet/redirect")) {
+        if (requestURI.contains("/redirect")) {
             System.out.println("Successful");
-            String toReplace = requestURI.substring(requestURI.indexOf("/redirect"), requestURI.lastIndexOf("/") + 1);
+        //    String toReplace = requestURI.substring(requestURI.indexOf("/redirect"), requestURI.lastIndexOf("/") + 1);
+            String toReplace = "sayhello";
             System.out.println(toReplace);
-            String newURI = requestURI.replace(toReplace, "?Contact_Id=");
+            String newURI = requestURI.replace("/helloservlet/redirect",toReplace);
             System.out.println(newURI);
             req.getRequestDispatcher(newURI).forward(req, res);
         } else {
