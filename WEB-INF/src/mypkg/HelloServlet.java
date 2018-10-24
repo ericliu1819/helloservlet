@@ -3,11 +3,16 @@ package mypkg;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
- 
+import javax.servlet.ServletContext;
+import javax.servlet.ServletContextListener;
+
 public class HelloServlet extends HttpServlet {
    @Override
    public void doGet(HttpServletRequest request, HttpServletResponse response)
                throws IOException, ServletException {
+      ServletContext ctx = request.getServletContext();
+      ctx.setAttribute("User", "Eric");
+      System.out.println("ServletContext  :" + ctx);
       // Set the response message's MIME type
       response.setContentType("text/html;charset=UTF-8");
       // Allocate a output writer to write the response message into the network socket

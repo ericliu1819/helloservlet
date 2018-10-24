@@ -3,20 +3,41 @@
   xmlns="http://java.sun.com/xml/ns/javaee"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
- 
+  <!--SessionLifeCycleEventExample being instantiated and registered upon application startup-->
+  <listener>
+      <listener-class>mypkg.SessionLifeCycleEventExample</listener-class> 
+  </listener>
+  <listener>
+      <listener-class>mypkg.AppContextListener</listener-class>
+  </listener>
   <!-- To save as <CATALINA_HOME>\webapps\helloservlet\WEB-INF\web.xml -->
  
    <servlet>
       <servlet-name>HelloWorldServlet</servlet-name>
       <servlet-class>mypkg.HelloServlet</servlet-class>
    </servlet>
- 
+   <servlet>
+      <servlet-name>sessioncreate</servlet-name> 
+      <servlet-class>mypkg.SessionCreateServlet</servlet-class> 
+   </servlet>
+   <servlet>
+      <servlet-name>sessiondestroy</servlet-name> 
+      <servlet-class>mypkg.SessionDestroyServlet</servlet-class> 
+   </servlet>
    <!-- Note: All <servlet> elements MUST be grouped together and
          placed IN FRONT of the <servlet-mapping> elements -->
  
    <servlet-mapping>
       <servlet-name>HelloWorldServlet</servlet-name>
       <url-pattern>/sayhello</url-pattern>
+   </servlet-mapping>
+   <servlet-mapping>
+      <servlet-name>sessioncreate</servlet-name>
+      <url-pattern>/servlet/SessionCreateServlet</url-pattern>
+   </servlet-mapping>
+   <servlet-mapping>
+      <servlet-name>sessiondestroy</servlet-name>
+      <url-pattern>/servlet/SessionDestroyServlet</url-pattern>
    </servlet-mapping>
    <!-- Filter Example 1 -->
   <filter> 
@@ -50,4 +71,8 @@
       <filter-name>urlRewriteFilter</filter-name>
       <url-pattern>/redirect</url-pattern>
   </filter-mapping>
+  <!--default file is index.html when you not point this element-->
+  <welcome-file-list>
+      <welcome-file>index.jsp</welcome-file> 
+   </welcome-file-list>
 </web-app>
