@@ -42,4 +42,12 @@
     <url-pattern>/filter2.jsp</url-pattern> 
   </filter-mapping> 
   <!-- end Filter Example 2 -->
+  <filter>
+    <filter-name>urlRewriteFilter</filter-name>
+    <filter-class>mypkg.UrlRewriteFilter</filter-class>
+  </filter>
+  <filter-mapping>
+      <filter-name>urlRewriteFilter</filter-name>
+      <url-pattern>/redirect</url-pattern>
+  </filter-mapping>
 </web-app>

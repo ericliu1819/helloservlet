@@ -11,7 +11,7 @@ public class MyGenericFilter implements javax.servlet.Filter {
     chain.doFilter(request,response);                               //3
   } 
 
-  public void init(final FilterConfig filterConfig) {               //4
+  public void init(final FilterConfig filterConfig) throws javax.servlet.ServletException {               //4
     this.filterConfig = filterConfig;
   } 
 
